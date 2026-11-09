@@ -12,4 +12,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "isbns#new"
   resource :isbns, only: [:new, :create]
+
+  # config/routes.rb
+  namespace :api do
+    namespace :v1 do
+      resources :isbns, only: :create   # POST /api/v1/isbns
+    end
+  end
 end
